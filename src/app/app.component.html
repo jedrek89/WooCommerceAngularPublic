@@ -1,0 +1,74 @@
+<body>
+  <header>
+    <div class="headerC1">
+      <div class="headerC1R1">
+        <div class="searchArea">
+          <input class="search" type="text" placeholder="Wyszukaj">
+        </div>
+      </div>
+
+      <div class="headerC1R2">
+        <div class="topMenu">Items per page:
+          <select name="items per page" id="itemsPerPage" class="itemsPerPage">
+            <option value="">20</option>
+        </select>
+        1 - 20 of 1863 &#60; &#62;
+        </div>
+      </div>
+    </div>  
+    
+    <div class="headerC2">
+      <div class="headerC2R1">Zamówienie</div>
+      <div class="headerC2R2">Data</div>
+      <div class="headerC2R3">Cena</div>
+      <div class="headerC2R4">Klient</div>
+    </div>
+  </header>
+  
+  <div *ngFor="let data of dataFromAPI, let i = index">
+    <div id="{{ 'item' + i }}" (click)="showItem(i)" class="item">
+      <div class="itemC1">
+
+        <div class="itemR1">
+          <div class="orderNumber">{{"#" + dataFromAPI[i].id}}</div>
+          <div><button class="orderStatusButton">
+            <div class="orderStatusButtonText">{{dataFromAPI[i].status | titlecase}}</div>
+            <div class="orderStatusButtonArrow"><svg xmlns="http://www.w3.org/2000/svg" width="20" heigt="20" viewBox="0 0 20 20"><path d="M16.924 9.617A1 1 0 0 0 16 9H8a1 1 0 0 0-.707 1.707l4 4a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0 .217-1.09z" style="fill:#ff8e31" data-name="Down"/></svg></div>
+          </button>
+          </div>
+        </div>
+
+        <div class="itemR2">
+          <div class="orderDate">{{dataFromAPI[i].date_created | date:'dd.MM.yy'}}</div>
+          <div class="orderHour">{{dataFromAPI[i].date_created | date:'hh:mm'}}</div>
+        </div>
+
+        <div class="itemR3">
+          <div class="orderPrice">{{dataFromAPI[i].total + " " + dataFromAPI[i].currency}}</div>
+          <div class="orderInvoice"><a href="Faktura">Faktura 94/27/2022</a></div>
+        </div>
+
+        <div class="itemR4">
+          <div class="clientName">{{dataFromAPI[i].billing.first_name + " " + dataFromAPI[i].billing.last_name}}</div>
+          <div class="clientEmail">{{dataFromAPI[i].billing.email}}</div>
+          <div class="clientPhoneNumber">{{dataFromAPI[i].billing.phone}}</div>
+          <div><button class="orderStatusButton2">
+            <div class="orderStatusButtonText">Order Status</div>
+            <div class="orderStatusButtonArrow"><svg xmlns="http://www.w3.org/2000/svg" width="20" heigt="20" viewBox="0 0 20 20"><path d="M16.924 9.617A1 1 0 0 0 16 9H8a1 1 0 0 0-.707 1.707l4 4a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0 .217-1.09z" style="fill:#ff8e31" data-name="Down"/></svg></div>
+          </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div id="{{ 'itemC2_' + i }}" [ngClass]="{'hideItem': this.orderListStatus[i] == 0, 'itemC2' : this.orderListStatus[i] == 1}"> -->
+        <div id="{{ 'itemC2_' + i }}" class="hideItem">
+        <div class="shoppingCart"><svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="shape-rendering:geometricPrecision;text-rendering:geometricPrecision;image-rendering:optimizeQuality;fill-rule:evenodd;clip-rule:evenodd" viewBox="0 0 6.827 6.827"><defs><style>.fil2{fill:#fffffe;fill-rule:nonzero}</style></defs><g id="Layer_x0020_1"><rect width="6.827" height="6.827" rx=".853" ry=".853" style="fill:#66bb6a"/><g id="_486076848"><path id="_512193792" d="M1.608 2.024h4.333l-.048.14L5.32 3.85l-.024.073H1.978l-.021-.08-.452-1.685-.036-.134h.14zm.684 1.283h2.673l-.074.213H2.35l-.058-.213zm-.115-.425h2.935l-.074.213H2.234l-.057-.213zm-.116-.429h3.198v.006l-.072.208H2.118l-.057-.214z" style="fill:#fffffe"/><path id="_512193264" class="fil2" d="M.886 1.514H1.553l.021.079.687 2.562h2.956l-.072.213H2.097l-.021-.08-.686-2.561H.886z"/><path id="_512193216" class="fil2" d="M2.423 4.514a.398.398 0 0 1 .282.682.398.398 0 0 1-.682-.282.398.398 0 0 1 .4-.4zm.131.268a.185.185 0 0 0-.317.132.185.185 0 0 0 .317.131.185.185 0 0 0 0-.263z"/><path id="_491182512" class="fil2" d="M5.02 4.514a.398.398 0 0 1 .282.682.398.398 0 0 1-.682-.282.398.398 0 0 1 .4-.4zm.131.268a.185.185 0 0 0-.318.132.186.186 0 0 0 .318.131.185.185 0 0 0 0-.263z"/></g></g></svg></div>
+        <div class="itemName">Item name</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+
+<!-- <router-outlet></router-outlet> -->

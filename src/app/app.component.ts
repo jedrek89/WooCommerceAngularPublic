@@ -22,14 +22,13 @@ export class AppComponent {
     this.GetDataService.getData().subscribe((data:any) => {
     this.dataFromAPI = data;
     this.orderListStatus.length = this.dataFromAPI.length;
-    this.orderListStatus.fill("hideItem");
-    console.log("this.orderListStatus", this.orderListStatus);
+    this.orderListStatus.fill(0);
   })
 
   }
 
   showItem(data:any){
-    console.log("showItem show element", data);
+    (this.orderListStatus[data] === 1) ? this.orderListStatus[data] = 0 : this.orderListStatus[data] = 1;
   }
 
 

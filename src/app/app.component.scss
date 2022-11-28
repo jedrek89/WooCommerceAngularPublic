@@ -156,7 +156,7 @@ header{
 }
 
 .orderStatusButton:hover{
-    background-color:#5cbf2a;
+    background-color:#366d1a;
     transition: 0.8s;
 }
 
@@ -211,13 +211,21 @@ header{
     height: fit-content;
     display: flex;
     flex-direction: row;
-    padding: 10px 20px 10px 10px;
+    padding: 5px 20px 5px 10px;
 }
 
 .shoppingCart{
     margin-top: 2px;
     width: 16px;
     height: 16px;
+}
+
+.cartItems{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 20px 5px 10px;
 }
 
 .itemName{
@@ -286,6 +294,11 @@ header{
         color:#ffffff;
         font-weight:bold;
         text-decoration:none;
+    }
+
+    .orderStatusButton2:hover{
+        background-color:#366d1a;
+        transition: 0.8s;
     }
 
 }

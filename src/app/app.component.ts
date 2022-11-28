@@ -13,34 +13,24 @@ export class AppComponent {
   dataFromAPI: any[] = [];
   items: any[] = ["item1", "item2"];
   orderListStatus: any [] = [];
-  
+  itemList : any [] = [];
   constructor(private GetDataService:GetDataService){
 }
 
 // get data on init
   ngOnInit(): void {
-    console.log("App works!!");
-    console.log("items", this.items)
-    // set lenght order list status array
-    this.orderListStatus.length = this.items.length;
-    // set to "0" order list status array
-    this.orderListStatus.fill(0);
-    console.log("this.orderListStatus", this.orderListStatus);
     this.GetDataService.getData().subscribe((data:any) => {
     this.dataFromAPI = data;
-    console.log("this.dataFromAPI", this.dataFromAPI);
+    this.orderListStatus.length = this.dataFromAPI.length;
+    this.orderListStatus.fill("hideItem");
+    console.log("this.orderListStatus", this.orderListStatus);
   })
 
   }
 
-
   showItem(data:any){
     console.log("showItem show element", data);
-    (this.orderListStatus[data] == 0) ? this.orderListStatus[data] = 1 : this.orderListStatus[data] = 0;
   }
 
-}
 
-function function1(){
-  console.log("function run");
 }

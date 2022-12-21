@@ -1,5 +1,9 @@
 # WooCommerceAngular
 
+This application required for one of the recruitment processes. This application downloads data from the Woo Commerce platform in JSON format and displays them in a list (order list with details) - it is an extensive list of orders with sensitive data, so I do not put the API key in the repository. The application uses Angular services and some of the basic directives and pipes.
+
+###################################################################################
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.6.
 
 ## Development server
